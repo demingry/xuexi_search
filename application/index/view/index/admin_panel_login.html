@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录</title>
+    <link rel="shortcut icon" type="image/x-icon" href="__STATIC__/favicon.ico" rel="external nofollow" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/plugins/layui/css/layui.css">
+    <script type="text/javascript" src="__STATIC__/plugins/layui/layui.js"></script>
+</head>
+<body style="background: #2F4056">
+<div style="position: absolute; left:50%;top:50%;width: 500px;margin-left: -250px;margin-top: -200px;">
+    <div style="background: #ffffff;padding: 20px;border-radius: 4px;box-shadow: 5px 5px 20px #444444;">
+        <div class="layui-form">
+            <div class="layui-form-item" style="color:gray;">
+                <h2>后台管理系统</h2>
+            </div>
+            <hr>
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-block">
+                    <input type="text" id="username" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+                <div class="layui-input-block">
+                    <input type="password" id="password" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">验证码</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="verifycode" class="layui-input">
+                </div>
+                <img src="{:captcha_src()}" id="img" onclick="reloadImg()">
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" onclick="dologin()">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__STATIC__/js/admin.panel.login.js"></script>
+</body>
+</html>

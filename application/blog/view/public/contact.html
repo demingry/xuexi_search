@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="ace ace-card-on ace-tab-nav-on ace-main-nav-on ace-sidebar-on" data-theme-color="#c0e3e7">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Blog</title>
+    <meta name="description" content="">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="__STATIC__/favicon.ico" rel="external nofollow" />
+
+
+
+    <link href="__STATIC__/js/blog.read.index/plugins/highlight/solarized-light.css" rel="stylesheet">
+    <link href="__STATIC__/css/blog.read.index/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="__STATIC__/plugins/layui/css/layui.css">
+    <script type="text/javascript" src="__STATIC__/plugins/layui/layui.js"></script>
+
+    <style type="text/css">
+</style>
+
+
+  </head>
+  <body>
+     <div class="ace-wrapper">
+         <header id="ace-header" class="ace-container-shift ace-logo-in ace-head-boxed ace-nav-right">
+             <div class="ace-head-inner">
+                 <div class="ace-head-container ace-container">
+                     <div class="ace-head-row">
+                         <div id="ace-head-col1" class="ace-head-col text-left">
+                             <a id="ace-logo" class="ace-logo" href="/blog/index/index">
+                                <span>Heze Univer Search</span>
+                             </a>
+                         </div>
+                         
+                         <div id="ace-head-col2" class="ace-head-col text-right">
+                             <div class="ace-nav-container ace-container hidden-sm hidden-xs">
+                                 <nav id="ace-main-nav">
+                                    <ul class="clear-list">
+										<li><a href="/">主页</a></li>
+										<li><a href="/index/index/vip_video">视频解析</a></li>
+                    <li><a href="/index/ichaoxing/ichaoxing">超星搜题</a></li>
+
+									</ul>
+                                 </nav>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+        </header>
+
+        
+        <nav id="ace-nav-sm" class="ace-nav hidden-lg hidden-md">
+
+        </nav>
+
+        <article id="ace-card" class="ace-card bg-primary">
+			<div class="ace-card-inner text-center">
+				<p>一切霸权的力量源泉和最终形式都体现于最终定价权</p>
+				<ul class="ace-social clear-list">
+
+				</ul>
+			</div>
+
+		</article>
+
+        <div id="ace-content" class="ace-container-shift">
+            <div class="ace-container">
+
+                
+                    <div id="ace-nav-wrap" class="hidden-sm hidden-xs">
+                        <div class="ace-nav-cont">
+                            <div id="ace-nav-scroll">
+                                <nav id="ace-nav" class="ace-nav">
+
+                                </nav>
+                            </div>
+
+                            <div id="ace-nav-tools" class="hidden">
+                                <span class="ace-icon ace-icon-dots-three-horizontal"></span>
+
+                                <button id="ace-nav-arrow" class="clear-btn">
+                                    <span class="ace-icon ace-icon-chevron-thin-down"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ace-nav-btm"></div>
+                    </div>
+
+                <div class="ace-paper-stock">
+                    <main class="ace-paper clearfix">
+                        <div class="ace-paper-cont clear-mrg">
+						
+
+
+    <h2 class="title-lg text-upper padd-box" style="color:#8f8f8f;">我手写我心 Blog, Welcome</h2>
+
+    <div>
+        <header>
+            <p class="title text-upper">{block name="content"}{/block}</p>
+        </header>
+    </div>
+
+
+{if condition="!empty($reply)"}
+    {volist name="reply" id="vo"}
+    <div class="layui-elem-quote" style="margin-top:40px;">
+        <p>回复：{$vo}</p>
+    </div>
+    {/volist}
+{/if}
+
+
+    <div id="map" data-latitude="50.84592" data-longitude="4.366859999999974"></div>
+
+    <div style="margin:30px 0 20px;">
+      <fieldset style="border-top: 1px solid #eee;">
+      <legend style="margin-left: 20px; padding:0 10px; font-size:22px; font-weight:300;">
+      <a name="use" style="color: #333; text-decoration:none;">评论</a>
+      </legend>
+      </fieldset>
+    </div>
+
+    <div class="layui-form">
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">内容</label>
+            <div class="layui-input-block">
+                <textarea id="content" placeholder="请输入内容(100字内)" class="layui-textarea"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+                <label class="layui-form-label">验证码</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="verifycode" class="layui-input" placeholder="输入验证码" style="border: 1px solid #eee;">
+                </div>
+                <img src="{:captcha_src()}" id="img" onclick="reloadImg()">
+                <button class="layui-btn" onclick="submit()">提交</button>
+        </div>
+    </div>
+
+						
+                </div>
+            </main>
+        </div>
+
+        </div>
+    </div>
+
+    <div id="ace-sidebar">
+		<button id="ace-sidebar-close" class="btn btn-icon btn-light btn-shade">
+			<span class="ace-icon ace-icon-close"></span>
+		</button>
+
+	</div>
+
+
+
+
+
+    <footer id="ace-footer" class="ace-container-shift">
+        <div class="ace-container">
+            <div class="ace-footer-cont clear-mrg">
+                <p class="text-center">2020.Heze Univer Search.<a target="_blank" href="http://47.95.122.208/">菏院搜索</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <svg id="ace-bg-shape-1" class="hidden-sm hidden-xs" height="519" width="758">
+        <polygon points="0,455,693,352,173,0,92,0,0,71" style="fill:#d2d2d2;stroke:purple;stroke-width:0; opacity: 0.5">
+    </svg>
+
+    <svg id="ace-bg-shape-2" class="hidden-sm hidden-xs" height="536" width="633">
+        <polygon points="0,0,633,0,633,536" style="fill:#c0e3e7;stroke:purple;stroke-width:0" />
+    </svg>
+</div>
+
+<script type="text/javascript" src="__STATIC__/js/blog.read.index/vendor/jquery-1.12.4.min.js"></script>
+
+<script>
+layui.use('form', function(){
+  var form = layui.form;
+  $ = layui.jquery;
+});
+</script>
+
+<script src="__STATIC__/js/blog.read.index.js"></script>
+
+

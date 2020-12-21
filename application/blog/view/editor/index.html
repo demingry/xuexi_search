@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="__STATIC__/favicon.ico" rel="external nofollow" />
+    <title>ueditor</title>
+</head>
+
+<body>
+<form action="/blog/editor/save" method="post">
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+    </script>
+
+    <input placeholder="标题" name="title"/>
+    <input placeholder="封面" name="album"/>
+
+    <button type="submit">submit</button>
+</form>
+<!-- 配置文件 -->
+<script type="text/javascript" src="__STATIC__/plugins/ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__STATIC__/plugins/ueditor/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var editor = UE.getEditor('container');
+</script>
+<center><a href="/index/admin/index">后台主页</a></center>
+</body>
+
+</html>

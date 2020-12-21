@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!-- Using System;
+    Using System.Windows;
+    namespace class MainWindow:Window{
+      MessageBox.Show("Welcom, HeZe Univer Search!");
+    } -->
+
+    <!-- #include<stdio.h>
+        #include<signal.h>
+        int main(){
+          struct sigaction Act;
+          Act.sa_sigaction=Action<:)测试压缩率>;
+          Act.sa_flags=SA_SIGINFO;
+          return -2147483647;
+        }
+     -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta charset="utf-8">
+<title>强国题库</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" type="image/x-icon" href="__STATIC__/favicon.ico" rel="external nofollow" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/plugins/layui/css/layui.css">
+<script type="text/javascript" src="__STATIC__/plugins/layui/layui.js"></script>
+
+  <style>
+
+  body{font-size:62.5%;font-family:"Microsoft YaHei",Arial; overflow-x:hidden; overflow-y:auto;}
+  .viewport{ max-width:640px; min-width:300px; margin:0 auto;}
+
+  body{
+    background-color: #2F4056;
+    font-size: 16px;
+  }
+
+@media (min-width: 768px){
+
+  html{
+    font-size: 62.5%;
+  }
+}
+
+@media (max-width: 767px){
+
+  html{
+    font-size: 50%;
+  }
+}
+
+body{
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.page{
+  min-height: 70vh;
+  display: flex;
+}
+
+.page__demo{
+  margin: auto;  
+}
+
+.page__demo{
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 640px;
+  padding: 20px;
+}
+
+.page__hint{
+  display: block;
+  max-width: 26rem;
+  line-height: 1.678;
+  
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  
+  color: #fff;
+  text-align: center;
+}
+
+</style>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f6b29e8e6f981a33cb75251b8abf59e3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  
+  
+      <link rel="stylesheet" href="__STATIC__/style.css">
+  
+</head>
+
+<body>
+
+
+  <div class="page">
+
+  <div class="page__demo">
+
+    <form class="search" action="#" method="post">
+      <div class="a-field search__field">
+        <input type="text" id="query" class="r-text-field a-field__input search__input" placeholder="初心未变，公益先行" name="title" required>
+
+        <label class="a-field__label-wrap search__hint" for="query">
+          <span class="a-field__label">强国题库（菏院版）</span>
+        </label>        
+      </div>
+      <button class="r-button search__button search__submit">
+        <span class="search__submit-label">Search</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.966 56.966" class="search__icon search__icon-search">
+          <path d="M55.146 51.887L41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 0 0 .083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z"/>
+        </svg>
+      </button>
+    </form>
+
+  </div>
+  </div>
+
+
+  <center style="color:#ffffff; margin:10px;" id="ShareIndex"></center>
+  <ul class="layui-nav" lay-filter="">
+    <center>
+      <li class="layui-nav-item"><a href="/index/index/vip_video">视频</a></li>
+      <!-- <li class="layui-nav-item"><a href="/index/ichaoxing/ichaoxing">超星</a></li> -->
+      <li class="layui-nav-item"><a href="/blog/index/index">博客</a></li>
+      <li class="layui-nav-item"><a href="/index/music/music">音乐</a></li>
+    </center>
+  </ul>
+
+  <table class="layui-table">
+    {if condition="!empty($data)"}
+    <thead>
+    <tr>
+      <th>题目</th>
+      <th>选项A</th>
+      <th>选项B</th>
+      <th>选项C</th>
+      <th>选项D</th>
+      <th>答&nbsp;&nbsp;&nbsp;&nbsp;案</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {volist name="data" id="vo"}
+    <tr>
+      <td>{$vo.title|high_lighting}</td>
+      <td>{$vo.choicea|high_lighting}</td>
+      <td>{$vo.choiceb|high_lighting}</td>
+      <td>{$vo.choicec|high_lighting}</td>
+      <td>{$vo.choiced|high_lighting}</td>
+      <td>{$vo.answer}</td>
+    </tr>
+    {/volist}
+    </tbody>
+    {elseif condition="isset($data)"}
+    <div>
+      <p style="text-align:center; color: #ffff; font-size: 20px;"><i class="layui-icon" style="font-size: 30px;">&#xe6af;</i>抱歉您的题目即将入库,感谢支持!</p>
+    </dir>
+{/if}
+  </table>
+
+
+    <script type="text/javascript" src="http://hq.sinajs.cn/list=s_sh000001,gb_$ixic,gb_$dji"></script>
+    <script src="__STATIC__/js/index.index.js"></script>
+    
+    <script type="text/javascript">
+      layui.use(['layer','element'],function(){
+      var layer = layui.layer;
+      var element = layui.element;
+      $ = layui.jquery;
+      var d = new Date();
+
+      var SplitText001=hq_str_s_sh000001.split(",");
+      var SplitTextnas=hq_str_gb_$ixic.split(",");
+      var SplitTextdji=hq_str_gb_$dji.split(",");
+      $('#ShareIndex').text("上证指数:"+SplitText001[1]+"("+SplitText001[3]+"%)"+" | "+"纳斯达克:"+SplitTextnas[1]+"("+SplitTextnas[2]+"%)"+" | "+"道琼斯工业:"+SplitTextdji[1]+"("+SplitTextdji[2]+"%)");
+
+      function getCookie(cname)
+      {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) 
+        {
+          var c = ca[i].trim();
+          if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+        }
+        return "";
+      }
+
+      if(!getCookie("showed"))
+      {
+        layer.ready(function(){
+            document.cookie = "showed=true";
+            var month = d.getMonth()+1;
+            layer.alert("今天: "+d.getFullYear()+"年"+month+"月"+d.getDate()+"日 要有好心情哦~");
+        });
+      }
+   
+    });
+    </script>
+
+</body>
+
+</html>
+
+    <!-- import cfscrap
+    cfscraper=cfscrap.create_scraper()
+    response=cfscraper.get("http://47.95.122.208")
+    print("Welcome, HeZe Univer Search!"+response)
+    if __name__!='main': lambda=> :( -->

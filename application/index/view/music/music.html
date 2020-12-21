@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="shortcut icon" type="image/x-icon" href="__STATIC__/favicon.ico" rel="external nofollow" />
+	<link rel="stylesheet" type="text/css" href="__STATIC__/plugins/layui/css/layui.css">
+	<script type="text/javascript" src="__STATIC__/plugins/layui/layui.js"></script>
+
+
+	 <script>
+	    var _hmt = _hmt || [];
+	    (function() {
+	      var hm = document.createElement("script");
+	      hm.src = "https://hm.baidu.com/hm.js?f6b29e8e6f981a33cb75251b8abf59e3";
+	      var s = document.getElementsByTagName("script")[0];
+	      s.parentNode.insertBefore(hm, s);
+	    })();
+  	</script>
+</head>
+
+
+<body style="padding: 50px;">
+
+<div style="margin-top: 100px;">
+	<form class="layui-form" action="#" method="post">
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">音乐来源</label>
+			<div class="layui-input-block">
+				<input type="radio" name="source" value="qq" title="QQ音乐">
+				<input type="radio" name="source" value="migu" title="咪咕音乐" checked>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">搜索</label>
+			<div class="layui-input-block">
+				<input type="text" name="title" required placeholder="关键字/歌曲名称/艺人名称" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit lay-filter="formDemo">开始解析</button>
+			</div>
+		</div>
+
+	</form>
+
+	{if condition="!empty($source) && $source=='migu'"}
+<!--	咪咕音乐-->
+	<table class="layui-table" style="padding: 10px;">
+	{if condition="!empty($data)"}
+	<thead>
+	<tr>
+		<th>图片</th>
+		<th>歌曲名</th>
+		<th>歌手</th>
+		<th>操作</th>
+	</tr>
+	</thead>
+	<tbody>
+	{volist name="data" id="vo"}
+	<tr>
+		<td><img src="{$vo.album.picUrl}"></td>
+		<td>{$vo.name}</td>
+		<td>
+		{volist name="vo.artists" id="artists_vo"}
+		{$artists_vo.name}
+		{/volist}
+		</td>
+		<td><button class="layui-btn layui-btn-normal"><a href="{$vo.url}">下载</a></button></td>
+	</tr>
+	{/volist}
+	{elseif condition="isset($data)"}
+	<tr>
+		<td><center>暂时没有您要的资源</center></td>
+	</tr>
+	</tbody>
+	{/if}
+	</table>
+	{/if}
+
+
+	{if condition="!empty($source) && $source=='qq'"}
+<!--	QQ音乐-->
+	<table class="layui-table" style="padding: 10px;">
+		{if condition="!empty($data)"}
+		<thead>
+		<tr>
+			<th>歌曲名</th>
+			<th>歌手</th>
+			<th>官方预览</th>
+			<th>MV</th>
+			<th>操作</th>
+		</tr>
+		</thead>
+		<tbody>
+		{volist name="data" id="vo"}
+		<tr>
+			<td>{$vo.songname}</td>
+			<td>
+				{volist name="vo.singer" id="singer_vo"}
+				{$singer_vo.name}
+				{/volist}
+			</td>
+			<td><a href="https://y.qq.com/n/yqq/song/{$vo.songmid}.html">戳这里</a></td>
+			{if condition="!empty($vo.vid)"}
+			<td><a href="/index/music/mv/vid/{$vo.vid}">戳这里</a></td>
+			{else/}<td>没有MV</td>
+			{/if}
+			<td><button class="layui-btn layui-btn-normal"><a target="_blank" href="/index/music/media/id/{$vo.songmid}">下载</a></button></td>
+		</tr>
+		{/volist}
+		{elseif condition="isset($data)"}
+		<tr>
+			<td><center>暂时没有您要的资源</center></td>
+		</tr>
+		</tbody>
+		{/if}
+	</table>
+	{/if}
+</div>
+
+<script>
+
+	layui.use(['layer','form'],function(){
+		form = layui.form;
+		layer = layui.layer;
+		$ = layui.jquery;
+
+		function getCookie(cname)
+		{
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i=0; i<ca.length; i++)
+			{
+				var c = ca[i].trim();
+				if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+			}
+			return "";
+		}
+
+		if(!getCookie("music_showed")){
+			layer.ready(function(){
+				document.cookie = "music_showed=true";
+				// layer.alert("吃水不忘挖井人：感谢接口提供者 https://github.com/jsososo; 请注意保护版权，学习研究用途，不承担任何责任！");
+			});
+		}
+
+		form.on('submit(formDemo)', function(data){
+		});
+	});
+
+</script>
+
+</body>
+</html>

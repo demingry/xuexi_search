@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+	<link rel="shortcut icon" type="image/x-icon" href="__STATIC__/favicon.ico" rel="external nofollow" />
+	<link rel="stylesheet" type="text/css" href="__STATIC__/plugins/layui/css/layui.css">
+	<script type="text/javascript" src="__STATIC__/plugins/layui/layui.js"></script>
+</head>
+
+
+<body style="padding: 50px;">
+
+<div style="margin-top: 100px;">
+	<form class="layui-form">
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">音乐来源</label>
+			<div class="layui-input-block">
+				<input type="radio" name="source" value="163" title="网易云" checked>
+				<input type="radio" name="source" value="qq" title="QQ音乐">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">音乐地址</label>
+			<div class="layui-input-block">
+				<input type="text" name="url" required placeholder="音乐地址" class="layui-input">
+			</div>
+		</div>
+
+	</form>
+
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button class="layui-btn" onclick="submit()">开始解析</button>
+		</div>
+	</div>
+	<p id="response"></p>
+</div>
+
+<script>
+
+	layui.use(['layer','form'],function(){
+		form = layui.form;
+		layer = layui.layer;
+		$ = layui.jquery;
+	});
+
+	function submit(){
+
+		var source = $.trim($('input[name="source"]').val());
+		var url = $.trim($('input[name="url"]').val());
+
+
+		$.post('/index/index/music_rev',$('form').serialize(),function(res){
+			if(res.message){
+				alert("chenggong");
+			}
+		},'json');
+	}
+</script>
+
+</body>
+
+</html>

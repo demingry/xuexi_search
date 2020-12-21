@@ -1,0 +1,155 @@
+﻿<!DOCTYPE HTML>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="author" content="smartit-source">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">	
+		<title>Blog</title>		
+		<link rel="shortcut icon" type="image/x-icon" href="__STATIC__/favicon.ico" rel="external nofollow" />
+
+		<style type="text/css">
+</style>
+
+	    <script>
+	        var _hmt = _hmt || [];
+	        (function() {
+	            var hm = document.createElement("script");
+	            hm.src = "https://hm.baidu.com/hm.js?f6b29e8e6f981a33cb75251b8abf59e3";
+	            var s = document.getElementsByTagName("script")[0];
+	            s.parentNode.insertBefore(hm, s);
+	        })();
+	    </script>
+
+		<link rel="stylesheet" href="__STATIC__/css/blog.index.index/bootstrap.min.css">
+		<link rel="stylesheet" href="__STATIC__/css/blog.index.index/jquery.barfiller.css">
+		<link rel="stylesheet" href="__STATIC__/css/blog.index.index/style.css">
+		<link rel="stylesheet" href="__STATIC__/css/blog.index.index/responsive.css" />
+		<script src="__STATIC__/js/blog.index.index/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	</head>
+	<body>
+
+		<header class="header-area header-one" id="sticky">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2 col-xs-6">
+					</div>
+					<div class="col-md-9">
+						<div class="menu-area">
+							<nav>
+								<ul>
+									<li><a href="/">主页</a></li>
+									<li><a href="/index/index/vip_video">视频解析</a></li>
+									<li><a href="/index/ichaoxing/ichaoxing">超星搜题</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-6">
+						<div class="humbargar-area">
+							<div class="menu-icon text-right">
+								<span class="flaticon-menu humbargar"></span>
+							</div>
+							<div class="close-area">
+								<span class="close"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+
+		<div class="banner-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="banner-content">
+							<div class="banner-title">
+								<h1>美国联邦储蓄银行</h1>
+							</div>
+							<div class="banner-subtitle">
+								<h4>非联邦非储蓄非银行</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="banner-img">
+							<img src="__STATIC__/image/blog.index.index/banner/1.png" alt="banner">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="post-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-1 col-md-12">
+					{volist name="data.lists" id="vo"}
+						<div class="single-post">
+							<div class="inner-post">
+								<div class="post-img">
+									<a href="/blog/read/index/id/{$vo.pid}"><img src="{$vo.imgrealurl?$vo.imgrealurl:'__STATIC__/image/blog.index.index/blog/2.png'}" alt="blog"></a>
+								</div>
+								<div class="post-info">
+									<div class="post-title">
+										<h3><a href="/blog/read/index/id/{$vo.pid}">{$vo.title}</a></h3>
+									</div>
+									<div class="post-content">
+
+									</div>
+									<div class="blog-meta fix" >
+										<div class="meta-left pull-left">
+											<ul>
+												<li> <span class="flaticon-man-user user"></span> <p>By <a href="mailto:gdeming@yahoo.com">Admin</a> </p></li>
+												<li> <span class="flaticon-calendar clendar"></span> <p>{$vo.add_time|time2date}</p></li>
+											</ul>
+										</div>
+										<div class="post-readmore pull-right">
+											<a href="#" class="readmore-btn">Read More <span>+</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="post-date two">
+								<span>{$vo.id}</span>
+							</div>
+						</div>
+						{/volist}
+					</div>
+					<div class="col-lg-10 col-lg-offset-1 col-md-12">
+						<center>
+							<div class="pagination">
+								{$data.pages}
+							</div>
+						</center>
+					</div>
+				</div>
+			</div>
+
+			<div class="leaf-left">
+				<img src="__STATIC__/image/blog.index.index/leaf-left.png" alt="leaf-right">
+			</div>
+
+			<div class="leaf-right">
+				<img src="__STATIC__/image/blog.index.index/leaf-right.png" alt="leaf-right">
+			</div>
+
+		</div>
+
+		<script src="__STATIC__/js/blog.index.index/vendor/jquery-1.12.0.min.js"></script>
+		<script src="__STATIC__/js/blog.index.index/plugins.js"></script>
+		<script src="__STATIC__/js/blog.index.index/bootstrap.min.js"></script>
+		<script src="__STATIC__/js/blog.index.index/jquery.magnific-popup.min.js"></script>
+
+		<script src="__STATIC__/js/blog.index.index/jquery.counterup.min.js"></script>
+		<script src="__STATIC__/js/blog.index.index/waypoints.min.js"></script>
+		<script src="__STATIC__/js/blog.index.index/jquery.appear.js"></script>
+		<script src="__STATIC__/js/blog.index.index/jquery.barfiller.js"></script>
+		<script src="__STATIC__/js/blog.index.index/main.js"></script>
+
+	</body>
+</html>
+

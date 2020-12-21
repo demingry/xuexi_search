@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台</title>
+    <link rel="shortcut icon" type="image/x-icon" href="__STATIC__/favicon.ico" rel="external nofollow" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/plugins/layui/css/layui.css">
+    <script type="text/javascript" src="__STATIC__/plugins/layui/layui.js"></script>
+    <script src="__STATIC__/js/index.index.js"></script>
+</head>
+<body style="padding: 10px;">
+
+<div class="header" style="width:100%;height: 50px;line-height: 50px;background: #2F4056;color:#ffffff;">
+        <span class="title" style="margin-right: 20px;font-size: 20px;"><span style="font-size: 12px;"></span>&nbsp;&nbsp;&nbsp;&nbsp;后台管理系统</span>
+        <span class="userinfo" style="float: right;margin-right: 10px;">欢迎: {$authen['name']}</span>
+</div>
+
+<form class="layui-form" style="padding: 15px;">
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">题目</label>
+        <div class="layui-input-block">
+            <textarea name="title" placeholder="" class="layui-textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">选项A</label>
+        <div class="layui-input-block">
+            <input type="text" name="choicea"  placeholder="红红火火"  class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">选项B</label>
+        <div class="layui-input-block">
+            <input type="text" name="choiceb"  placeholder="恍恍惚惚"  class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">选项C</label>
+        <div class="layui-input-block">
+            <input type="text" name="choicec"  placeholder="十全十美"  class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">选项D</label>
+        <div class="layui-input-block">
+            <input type="text" name="choiced"  placeholder="万事如意"  class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">答案</label>
+        <div class="layui-input-block">
+            <input type="text" name="answer"  placeholder="喜大普奔"  class="layui-input">
+        </div>
+    </div>
+
+</form>
+
+<div class="layui-form-item">
+    <div class="layui-input-block">
+        <button class="layui-btn" onclick="save()">大功告成!</button>
+        <button type="button" class="layui-btn" id="up_load"><i class="layui-icon">&#xe67c;</i>上传文件
+</button>
+    </div>
+</div>
+
+<center>
+<a href="/blog/editor/index">添加文章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+<a target="_blank" href="/cos/index/index">腾讯cos</a>
+</center>
+
+<script>
+layui.use(['upload','form','layer'],function(){
+    $ = layui.jquery;
+    var form = layui.form;
+    layer = layui.layer;
+    var upload = layui.upload;
+    var uploadInst = upload.render({
+        elem: '#up_load'
+        ,accept:'file'
+        ,url: '/index/index/upload_file'
+        ,done: function(res){
+            layer.alert(res.message);
+        }
+        ,error: function(){
+        }
+    });
+});
+</script>
+
+
+
+<script>
+    function save(){
+
+        $.post('/index.php/index/admin/save',$('form').serialize(),function(res){
+            layer.msg(res.message);
+            setTimeout(function(){window.location.reload();},2000);
+        },'json');
+    }
+</script>
+</body>
+</html>

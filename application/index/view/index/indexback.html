@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习强国题库</title>
+    <link rel="shortcut icon" type="image/x-icon" href="__STATIC__/favicon.ico" rel="external nofollow" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/plugins/layui/css/layui.css">
+    <script type="text/javascript" src="__STATIC__/plugins/layui/layui.js"></script>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f6b29e8e6f981a33cb75251b8abf59e3";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body style="padding: 100px;">
+
+<h1 style="color: #2F4056;">强国题库(菏院版)
+<button type="button" class="layui-btn" id="upload_img" style="float: right;">
+    <i class="layui-icon">&#xe67c;</i>上传题目图片
+</button>
+<a href="/index/index/vip_video" style="padding: 30px;"><i class="layui-icon">&#xe67c;</i>视频解析  </a>
+</h1>
+
+<hr class="layui-bg-orange">
+
+<form class="layui-form" style="padding: 10px;" action="#" method="post">
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder="请输入题目关键字（初心未变,公益先行）" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" style="margin-left: 200px;" onclick="search()">搜&nbsp;&nbsp;<i class="layui-icon layui-icon-search"></i>&nbsp;&nbsp;索</button>
+        </div>
+    </div>
+</form>
+
+<i class="layui-icon layui-icon-bluetooth" style="font-size: 50px; color: #1E9FFF;float: left"></i>
+<i class="layui-icon layui-icon-wifi" style="font-size: 50px; color: #1E9FFF;float: left"></i>
+<i class="layui-icon layui-icon-heart-fill" style="font-size: 50px; color: #1E9FFF;float: left"></i>
+
+<i class="layui-icon layui-icon-windows" style="font-size: 50px; color: #1E9FFF;float: right"></i>
+<i class="layui-icon layui-icon-android" style="font-size: 50px; color: #1E9FFF; float: right"></i>
+<i class="layui-icon layui-icon-ios" style="font-size: 50px; color: #1E9FFF; float: right"></i>
+
+
+<table class="layui-table" style="padding: 10px;">
+{if condition="!empty($data)"}
+    <thead>
+    <tr>
+        <th>题目</th>
+        <th>选项A</th>
+        <th>选项B</th>
+        <th>选项C</th>
+        <th>选项D</th>
+        <th>答&nbsp;&nbsp;&nbsp;&nbsp;案</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="data" id="vo"}
+    <tr>
+        <td>{$vo.title|high_lighting}</td>
+        <td>{$vo.choicea|high_lighting}</td>
+        <td>{$vo.choiceb|high_lighting}</td>
+        <td>{$vo.choicec|high_lighting}</td>
+        <td>{$vo.choiced|high_lighting}</td>
+        <td>{$vo.answer}</td>
+    </tr>
+    {/volist}
+    {elseif condition="isset($data)"}
+    <tr>
+        <td>盼君提交:截个屏顺便右上角点下提交吧客官,感谢支持!</td>
+    </tr>
+    </tbody>
+{/if}
+</table>
+    <script src="__STATIC__/js/index.index.js"></script>
+</body>
+</html>
